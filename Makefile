@@ -14,10 +14,10 @@ src/js/decode.js: src/em/decode.c Makefile src/em/pre.js local/lib
 	emsdk/upstream/emscripten/emcc -Ilocal/include src/em/decode.c -o src/js/oggmented-wasm.js \
 	--pre-js src/em/pre.js ${CFLAGS} \
 	-s MODULARIZE=1 \
+	-s EXPORT_NAME="Oggmented" \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s ENVIRONMENT=web \
 	-s STRICT=1 \
-	-s SINGLE_FILE=1 \
 	-s EXPORTED_FUNCTIONS="[ \
 		'_read_float', \
 		'_open_buffer', \
